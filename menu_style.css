@@ -1,0 +1,243 @@
+/* menu*/
+
+
+.hidden {
+    display: none;
+  }
+  .menu_menu  {
+    color: #403f3d;
+    font: 16px Inter, sans-serif;
+    font-weight: 600;
+    line-height: 150%;
+    position: relative;
+    margin-bottom: 3px;
+  }
+  
+  .menu_menu::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #403f3d;
+  }
+  
+  .br {
+    display: block;
+  }
+  
+  .menu_card h2 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  
+  .menu_navigation {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .bar {
+    cursor: pointer;
+    border-radius: 100px;
+    border: 1px solid #c1b6ad;
+    padding: 6px 16px 6px 8px;
+    color: #403f3d;
+    font: 16px Inter, sans-serif;
+    font-weight: 600;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .bar img {
+    border: 1px solid #c1b6ad;
+    background-color: #c1b6ad;
+    border-radius: 100%;
+    padding: 7px;
+  }
+  
+  input[name="r"] {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .page {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 40px;
+  }
+  
+  #coffee:checked ~ .coffee {
+    display: flex;
+    opacity: 0;
+    animation: ani 2s forwards;
+  }
+  
+  #coffee:checked ~ .menu_navigation .bar:nth-child(1),
+  #tea:checked ~ .menu_navigation .bar:nth-child(2),
+  #dessert:checked ~ .menu_navigation .bar:nth-child(3) {
+    background: #665f55;
+    color: #e1d4c9;
+    transition: 0.5s;
+    border-color: #665f55;
+    cursor: default;
+  }
+  #coffee:checked ~ .menu_navigation .bar:nth-child(1) img,
+  #tea:checked ~ .menu_navigation .bar:nth-child(2) img,
+  #dessert:checked ~ .menu_navigation .bar:nth-child(3) img {
+    background: #e1d4c9;
+  }
+  
+  #tea:checked ~ .tea {
+    display: flex;
+    opacity: 0;
+    animation: ani 0.5s forwards;
+  }
+  #dessert:checked ~ .dessert {
+    display: flex;
+    opacity: 0;
+    animation: ani 2s forwards;
+  }
+  
+  @keyframes ani {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* стиль карточки*/
+  
+  .menu_item {
+    border-radius: 40px;
+    border: 1px solid #c1b6ad;
+    max-width: 310px;
+    width:100%;
+  }
+  
+  .menu_item figure {
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid #c1b6ad;
+    height: 310px;
+  }
+  .menu_item img {
+    max-width: 310px;
+    transform: scale(1.1);
+    border: 1px solid #c1b6ad;
+  }
+  
+  .item_description {
+    height: 196px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+  .price {
+    margin-top: auto;
+  }
+  
+  /* кнопка загрузки всего меню*/
+  
+  .btn_load_menu {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid #665F55;
+    background: #e1d4c9;
+  margin:40px auto 0 auto;
+  display: none;
+  }
+  
+  
+  .hidden_menu{
+    display: block;
+  }
+  
+  /*медиа запросы для разрешения от 768px до 1440px*/
+  
+  @media screen and (max-width: 1440px){
+    .page {
+           justify-content: center;
+         }
+    
+    .menu_navigation {
+           gap:8px;
+         }
+      
+     }
+  
+     /*медиа запросы для разрешения от 768px до 1440px*/
+     
+  @media screen and (max-width: 768px){
+  
+    #coffee:checked ~ .btn_coffee, #dessert:checked ~ .btn_dessert {
+      display: block;
+    }
+    #coffee:checked ~ .btn_dessert, #dessert:checked ~ .btn_coffee{
+      display: none;
+    }
+  
+      .br {
+        display: inline;
+       }
+   
+         .hidden_menu_coffee,.hidden_menu_dessert {
+           display: none;
+         }
+  
+         .menu_menu::before {
+           display: none;
+         }
+       .menu_menu {
+           font-size: 32px;
+           line-height: 125%;
+         }
+         .cup{
+          display:none;
+        }
+        .burger_cup{
+          display:inline-block;
+        }
+    }
+  
+    @media (hover:hover) and (pointer:fine) {
+    
+      .bar:hover {
+        background: #665f55;
+        color: #e1d4c9;
+        transition: 0.5s;
+        border-color: #665f55;
+      }
+      
+      .bar:hover img {
+        background: #e1d4c9;
+      }
+  
+      .menu_item:hover {
+        cursor: pointer;
+      }
+      .menu_item:hover img {
+        transform: scale(1);
+        transition: 1s;
+      }
+      .btn_load_menu:hover{
+        cursor: pointer;
+        background: #665f55;
+        transition: all 0.5s;
+      }
+      .btn_load_menu:hover svg path {
+        stroke: #e1d4c9;
+        transition: all 0.5s;
+      }
+    }
